@@ -12,6 +12,7 @@ class Reservation(models.Model):
     hotel = models.ForeignKey(Hotels, on_delete=models.CASCADE)
     checkin = models.DateField()
     checkout = models.DateField()
+    confirmation_number = models.CharField(max_length=16, default='TEMPCONFIRM123456')
 
 class Guest(models.Model):
     guest_id = models.BigAutoField(primary_key=True)

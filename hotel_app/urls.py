@@ -1,13 +1,10 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import HotelsViewSet, ReservationViewSet, GuestViewSet, HotelsCreateView
-
-router = DefaultRouter()
-router.register(r'hotels', HotelsViewSet)
-router.register(r'reservations', ReservationViewSet)
-router.register(r'guests', GuestViewSet)
+from .views import create_reservation, get_all_hotels, get_all_reservations, get_all_guests
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('hotelaaa/', HotelsCreateView.as_view(), name='hotel2'),
+    path('create_reservation/', create_reservation),
+    path('hotels/', get_all_hotels),
+    path('reservations/', get_all_reservations),
+    path('guests/', get_all_guests),
 ]
